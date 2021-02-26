@@ -1,0 +1,151 @@
+﻿
+@model IF4101SupportApp.Models.Employee
+
+<div class="container">
+    <div class="text-center">
+        <h2 class="section-heading text-uppercase">Employees</h2>
+        <div class="row">
+            <div class="col-md-5">
+                <form id="Employee_Form">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-row">
+                        <div class="col-md-6 col-sm-12">
+                            <label asp-for="EmployeeName" class="control-label">Name</label>
+                            <input asp-for="EmployeeName" id="EmployeeName" class="form-control" />
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <label asp-for="FirstSurname" class="control-label">First Surname</label>
+                            <input asp-for="FirstSurname" id="FirstSurname" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6 col-sm-12">
+                            <label asp-for="SecondSurname" class="control-label">Second Surname</label>
+                            <input asp-for="SecondSurname" id="SecondSurname" class="form-control" />
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <label asp-for="Email" class="control-label">Email</label>
+                            <input type="email" asp-for="Email" id="Email" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6 col-sm-12">
+                            <label asp-for="Password" class="control-label">Password</label>
+                            <input type="password" asp-for="Password" id="Password" class="form-control" />
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <label asp-for="Services" class="control-label">Services</label>
+                            <select class="selectpicker required" id="Services" multiple data-live-search="true">
+                                <option value="1">Telefonia Movil</option>
+                                <option value="2">Cable</option>
+                                <option value="3">Telefonia Fija</option>
+                                <option value="4">Internet</option>
+                            </select>
+                            <label id="Services-error" class="error" for="Services"></label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6 col-sm-12">
+                            <label asp-for="EmployeeType" class="control-label">Role</label>
+                            <select asp-for="EmployeeType" id="EmployeeType" class="selectpicker" data-live-search="true" title="Role...">
+                                <option value="1">Supervisor</option>
+                                <option value="2">Supporter</option>
+                            </select>
+                            <label id="EmployeeType-error" class="error" for="EmployeeType"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary" style="background-color: #7f5feb !important;" id="employee-btn">Register</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-7">
+
+                <div class="table-responsive">
+                    <table id="table-employees" class="table table-bordered" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Actions</th>
+                                <th>Employee ID</th>
+                                <th>Name</th>
+                                <th>First Surname</th>
+                                <th>Second Surname</th>
+                                <th>Email</th>
+                            </tr>
+                        </thead>
+                        <tbody class="tbody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- The Modal -->
+<div class="modal" id="DetailEmployeeModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Employee Details</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form id="UEmployee_Form">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-row">
+                        <div class="col-md-4 col-sm-12">
+                            <label class="control-label">ID</label>
+                            <input name="UEmployeeId" id="UEmployeeId" class="form-control" disabled />
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                            <label asp-for="EmployeeName" class="control-label">Name</label>
+                            <input name="UEmployeeName" id="UEmployeeName" class="form-control" />
+                            <span asp-validation-for="EmployeeId" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                            <label asp-for="FirstSurname" class="control-label">First Surname</label>
+                            <input name="UFirstSurname" id="UFirstSurname" class="form-control" />
+                            <span asp-validation-for="FirstSurname" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6 col-sm-12">
+                            <label asp-for="SecondSurname" class="control-label">Second Surname</label>
+                            <input name="USecondSurname" id="USecondSurname" class="form-control" />
+                            <span asp-validation-for="SecondSurname" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <label asp-for="Email" class="control-label">Email</label>
+                            <input type="email" name="UEmail" id="UEmail" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6 col-sm-12">
+                            <label asp-for="EmployeeType" class="control-label">Role</label>
+                            <select name="UEmployeeType" id="UEmployeeType" class="selectpicker" title="Role...">
+                                <option value="1">Supervisor</option>
+                                <option value="2">Supporter</option>
+                            </select>
+                            <label id="EmployeeType-error" class="error" for="EmployeeType"></label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="submit" form="UEmployee_Form" class="btn btn-primary float-right" style="background-color: #7f5feb!important;" id="UEmployee-btn">Update</button>
+                <button type="button" class="btn btn-danger float-left" style="background-color: red" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,162 @@
+﻿#IssueDetailsModal .modal-footer {
+    display: block;
+}
+
+select[disabled] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 0.01px;
+    text-overflow: '';
+    border: 0;
+}
+
+input[disabled] {
+    border: 0;
+}
+
+/* Menu Bar */
+#mainNav .navbar-toggler {
+    background: #007bff;
+}
+
+#mainNav .navbar-nav .nav-item .nav-link {
+    font-size: 20px;
+}
+
+*::selection {
+    background: #007bff;
+    text-shadow: none;
+    color: white;
+}
+
+.nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover {
+    color: #007bff !important;
+}
+
+#mainNav .navbar-brand img {
+    height: 4em;
+}
+/* Menu Bar */
+
+
+header.masthead .masthead-heading {
+    -webkit-text-stroke: 0.5px #020053;
+}
+
+header.masthead .masthead-subheading {
+    -webkit-text-stroke: 1px #020053;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+a:hover {
+    color: blue !important;
+}
+
+.navbar-brand svg, #mainNav.navbar-shrink .navbar-brand img {
+    height: 3.5rem;
+}
+
+.dataTables_length, div.dataTables_info {
+    text-align: left;
+}
+
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.page-link {
+    color: #007bff;
+}
+
+
+/* Button Bounce In */
+.hvr-bounce-in {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    background: transparent;
+    border: none;
+    outline: none !important;
+}
+
+.hvr-bounce-in:hover{
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+    -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+    transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+    color: #007bff;
+}
+
+button#btn-save.btn {
+    color: #fff;
+    background-color: #39C0ED;
+}
+/* Button Bounce In */
+
+
+table.dataTable tbody tr.selected {
+    background-color: #acbad4 !important;
+}
+
+button#btn-cancel.btn, button#btn-status-issue.btn {
+    color: #007bff;
+    border-color: #007bff;
+}
+
+input.col-sm-6.form-control.form-control-sm, textarea.col-sm-6.form-control.form-control-sm, select.col-sm-6.form-control.form-control-sm {
+    background: #39c0ed05;
+    border: 0.5px solid #39c0ed8;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.issue-details i {
+    padding-inline: 0.5em;
+}
+
+.issue-details label {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+.modal-content {
+    border: 1px solid #39c0ed;
+}
+
+table.dataTable {
+    width: 90%;
+    overflow: auto;
+}
+
+.form-control:focus, .btn:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 0 0.2rem rgba(57, 192, 237, 0.25);
+}
+
+.hide {
+    display: none;
+}
+
+.button-option {
+    font-size: 20px;
+}
+
+#IssueDetailsModal .modal-header {
+    background-color: #007bff;
+    color: white;
+}

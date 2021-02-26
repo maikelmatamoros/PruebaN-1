@@ -1,0 +1,21 @@
+﻿@model IF4101SupportApp.Models.Note
+
+    <div class="col-md-6 col-sm-12">
+
+        <div id="note-@Model.NoteId" class="card">
+            <div class="card-header">
+                <div>Note # @Model.NoteId</div>
+                <div class="btn-div float-right">
+                    <a href="javascript: void(0)" onclick="editNote( @Model.NoteId );"><span><i class="fa fa-pencil"></i></span></a>
+                    <a href="javascript: void(0)" onclick="deleteNote( @Model.NoteId );"><span><i class="fa fa-trash"></i></span></a>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="card-text">@Model.Description</p>
+            </div>
+            <div class="card-footer text-muted">
+                Publication Date: @Model.NoteTimestamp
+            </div>
+        </div>
+
+    </div>

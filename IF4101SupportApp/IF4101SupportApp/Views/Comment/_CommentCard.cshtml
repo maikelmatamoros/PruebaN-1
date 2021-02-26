@@ -1,0 +1,19 @@
+﻿@model IF4101SupportApp.Models.Comment
+
+<div class="col-md-6 col-sm-12">
+    <div id="comment-@Model.Comment_Id" class="card">
+        <div class="card-header">
+            <div>Comment # @Model.Comment_Id</div>
+            <div class="btn-div float-right">
+                <a href="javascript: void(0)" onclick="editComment( @Model.Comment_Id );"><span><i class="fa fa-pencil"></i></span></a>
+                <a href="javascript: void(0)" onclick="deleteComment( @Model.Comment_Id );"><span><i class="fa fa-trash"></i></span></a>
+            </div>
+        </div>
+        <div class="card-body">
+            <p class="card-text">@Model.Description</p>
+        </div>
+        <div class="card-footer text-muted">
+            Publication Date: @Model.Comment_Timestamp
+        </div>
+    </div>
+</div>

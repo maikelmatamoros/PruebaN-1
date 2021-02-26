@@ -1,0 +1,88 @@
+﻿#content-note {
+    margin-top: 4%;
+    margin-left: 4%;
+}
+
+.shape .ui.note.card {
+    background-color: #b4d4d1!important;
+    padding: 2rem inherit;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+    .shape .ui.note.card .corner.label,
+    .shape .ui.note.card .pin {
+        cursor: pointer;
+    }
+
+    .shape .ui.note.card > .content {
+        padding: 2rem 1rem 1rem;
+    }
+        /* .shape .ui.note.card > .content .divider {
+  opacity: 0.5;
+} */
+
+        .shape .ui.note.card > .content .button.transparent:first-of-type {
+            border-left: 1px solid white;
+            margin-right: -1rem;
+            border-radius: 0;
+        }
+
+        .shape .ui.note.card > .content .write .undo {
+            transition: all 0.2s ease-in-out;
+            transform: scale(1);
+        }
+
+        .shape .ui.note.card > .content .write:hover {
+            transform: scale(1.7);
+        }
+
+    .shape .ui.note.card.no-notes p {
+        color: #ccc;
+        line-height: 2rem;
+        padding: 2rem;
+        text-align: center;
+    }
+
+    .shape .ui.note.card.edit {
+        background-color: #b4d4d1 !important;
+    }
+
+        .shape .ui.note.card.edit .undo:hover {
+            animation: bounce 1s;
+        }
+
+        .shape .ui.note.card.edit .ui.form textarea {
+            border: none;
+            resize: none;
+        }
+
+.shape .ui.button {
+    transition: none !important;
+}
+
+.transparent.button {
+    background: transparent;
+    box-shadow: none;
+}
+
+    .transparent.button:hover, .transparent.button:focus {
+        background: transparent;
+    }
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+
+    40% {
+        -webkit-transform: translateY(-5px);
+        transform: translateY(-5px);
+    }
+
+    60% {
+        -webkit-transform: translateY(-2px);
+        transform: translateY(-2px);
+    }
+}

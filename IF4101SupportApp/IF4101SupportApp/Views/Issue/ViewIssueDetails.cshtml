@@ -1,0 +1,115 @@
+﻿@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor
+
+<form id="form-issue-details" method="post">
+
+    <div class="container text-left">
+        <div class="alert alert-danger text-center" id="message-alert-issue"></div>
+        
+
+        <div class="row">
+
+            <div class="col-sm-6">
+
+                <!--REPORT NUMBER-->
+                <div class="row issue-details">
+                    <label class="col-sm-4 control-label small font-weight-bold" for="reportNumberIssue">Report Number:</label>
+                    <input class="col-sm-6 form-control form-control-sm" type="number" id="reportNumberIssue" name="reportNumberIssue" disabled />
+                </div>
+
+                <!--USER-->
+                <div class="row issue-details">
+                    <label class="col-sm-4 control-label small font-weight-bold" for="userIssue">User:</label>
+                    <input class="col-sm-6 form-control form-control-sm" type="text" id="userIssue" name="userIssue" disabled />
+                </div>
+
+                <!--EMAIL-->
+                <div class="row issue-details">
+                    <label class="col-sm-4 control-label small font-weight-bold" for="emailIssue">Email:</label>
+                    <input class="col-sm-6 form-control form-control-sm" type="email" id="emailIssue" name="emailIssue" pattern="[a-z0-9._%+-]+&#64[a-z0-9.-]+\.[a-z]{2,4}$" title="Example: mail&#64domain.com" disabled />
+                </div>
+
+                <!--PHONE-->
+                <div class="row issue-details">
+                    <label class="col-sm-4 control-label small font-weight-bold" for="phoneIssue">Phone:</label>
+                    <input class="col-sm-6 form-control form-control-sm" type="tel" id="phoneIssue" name="phoneIssue" pattern="[0-9]{8}" maxlength="8" disabled />
+                </div>
+
+                <!--ADDRESS-->
+                <div class="row issue-details">
+                    <label class="col-sm-4 control-label small font-weight-bold" for="addressIssue">Address:</label>
+                    <input class="col-sm-6 form-control form-control-sm" type="text" id="addressIssue" name="addressIssue" disabled />
+                </div>
+
+                <!--SECOND CONTACT
+    <div class="row issue-details">
+        <label class="col-sm-4 control-label small font-weight-bold" for="secondContactIssue">Second Contact:</label>
+        <input class="col-sm-6 form-control form-control-sm" type="text" id="secondContactIssue" name="secondContactIssue" disabled />
+    </div>-->
+                <!--CONTACT EMAIL-->
+                <div class="row issue-details">
+                    <label class="col-sm-4 control-label small font-weight-bold" for="contactEmailIssue">Contact email:</label>
+                    <input class="col-sm-6 form-control form-control-sm" type="email" id="contactEmailIssue" name="contactEmailIssue" disabled />
+                </div>
+
+                <!--CONTACT PHONE-->
+                <div class="row issue-details">
+                    <label class="col-sm-4 control-label small font-weight-bold" for="contactPhoneIssue">Contact phone:</label>
+                    <input class="col-sm-6 form-control form-control-sm" type="tel" id="contactPhoneIssue" name="contactPhoneIssue" pattern="[0-9]{8}" maxlength="8" disabled />
+                </div>
+
+            </div>
+
+            <div class="col-sm-6">
+                <!--CLASSIFICATION-->
+                <div class="row issue-details">
+                    <label class="col-sm-4 control-label small font-weight-bold" for="classificationIssue">Classification:</label>
+                    <select class="col-sm-6 form-control form-control-sm" name="classificationIssue" id="classificationIssue" required>
+                        <option value="A" selected>High</option>
+                        <option value="M">Half</option>
+                        <option value="B">Low</option>
+                    </select>
+                    <button type="button" class="hvr-bounce-in" id="btnSaveClassification" onclick="ChangeClassification()"><i class="fa fa-floppy-o button-option" aria-hidden="true"></i></button>
+                </div>
+
+                <!--SUPPORT USER ASSIGNED-->
+                <div class="row issue-details">
+                    <label class="col-sm-4 control-label small font-weight-bold" for="supportUserAssignedIssue">Support User Assigned:</label>
+                    <select class="col-sm-6 form-control form-control-sm" name="supportUserAssignedIssue" id="supportUserAssignedIssue" required>
+                        <option value="none">Not assigned</option>
+                    </select>
+                    <button type="button" class="hvr-bounce-in" id="btnUSO" onclick="AssignSupporter()"><i class="fa fa-address-card-o button-option" aria-hidden="true"></i></button>
+                </div>
+
+                <!--STATUS-->
+                <div class="row issue-details">
+                    <label class="col-sm-4 control-label small font-weight-bold" for="statusIssue">Status:</label>
+                    <select class="col-sm-6 form-control form-control-sm" name="statusIssue" id="statusIssue" required disabled>
+                        <option value="I" selected>Inserted</option>
+                        <option value="A">Assigned</option>
+                        <option value="P">In progress</option>
+                        <option value="R">Resolved</option>
+                    </select>
+                </div>
+
+                <!--COMMENTS-->
+                <div class="row issue-details">
+                    <label class="col-sm-4 control-label small font-weight-bold" for="commentsIssue">Final Comment:</label>
+                    <textarea class="col-sm-6 form-control form-control-sm" id="commentsIssue" placeholder="No comment" rows="3" disabled></textarea>
+                    <div class="col-sm-2" style="margin-top: 0.5em;">
+                        <button id="buttonEditFinalComment" type="button" class="hvr-bounce-in hide" onclick="EditFinalComment()"><i class="fa fa-pencil button-option" aria-hidden="true"></i></button>
+                        <button id="buttonSaveFinalComment" type="button" class="hvr-bounce-in hide" onclick="SaveFinalComment()"><i class="fa fa-floppy-o button-option" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    
+
+    </div>
+
+    <input type="hidden" value="@HttpContextAccessor.HttpContext.Session.GetInt32("id")" id="id">
+    <input type="hidden" value="@HttpContextAccessor.HttpContext.Session.GetInt32("role")" id="role">
+
+</form>
